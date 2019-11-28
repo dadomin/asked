@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane minHeight="150.0" prefWidth="450.0" style="-fx-background-color: #fafafa; -fx-background-radius: 10px; -fx-border-radius: 10px;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="views.AnswerController">
+   <children>
+      <AnchorPane layoutX="20.0" layoutY="40.0" minHeight="150.0" prefHeight="0.0" prefWidth="450.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label fx:id="questionlbl" prefHeight="49.0" prefWidth="450.0" text="Label" />
+            <Canvas fx:id="canvas" height="50.0" layoutX="14.0" layoutY="51.0" width="50.0" />
+            <Label fx:id="namelbl" layoutX="76.0" layoutY="59.0" text="Label">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="datelbl" layoutX="78.0" layoutY="78.0" text="Label" textFill="#807e7e" />
+            <Label fx:id="answerlbl" layoutY="101.0" prefHeight="49.0" prefWidth="450.0" text="Label" />
+         </children>
+      </AnchorPane>
+   </children>
+   <padding>
+      <Insets top="20.0" />
+   </padding>
+</AnchorPane>

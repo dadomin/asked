@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="800.0" prefWidth="600.0" styleClass="profilePage" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="views.ProfileController">
+   <children>
+      <Pane layoutX="92.0" layoutY="10.0" prefHeight="50.0" prefWidth="600.0" styleClass="top-title" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="35.0" fitWidth="25.0" layoutX="14.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/menuBtn.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="30.0" fitWidth="80.0" layoutX="242.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/toplogo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <HBox layoutX="10.0" layoutY="10.0" prefHeight="60.0" prefWidth="600.0" styleClass="bottom" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#gohome" prefHeight="60.0" prefWidth="200.0" styleClass="bottombtn">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#goSearch" prefHeight="60.0" prefWidth="200.0" styleClass="bottombtn" textAlignment="CENTER" textFill="#bdbdbd">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/search.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="bottombtn">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/myfeed_s.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+      <Canvas fx:id="canvas" height="80.0" layoutX="43.0" layoutY="70.0" width="80.0" />
+      <Label fx:id="namelbl" layoutX="147.0" layoutY="78.0" text="Label">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="infolbl" layoutX="147.0" layoutY="110.0" text="Label" textFill="#797777">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="question" layoutX="83.0" layoutY="164.0" prefHeight="134.0" prefWidth="418.0" />
+      <Button layoutX="140.0" layoutY="309.0" mnemonicParsing="false" onAction="#question" prefHeight="28.0" prefWidth="273.0" text="질문하기" />
+      <HBox layoutY="349.0" prefHeight="40.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" styleClass="btn" text="답변 완료">
+               <graphic>
+                  <Label fx:id="doneq" text="Label" />
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#showNew" prefHeight="40.0" prefWidth="200.0" styleClass="btn" text="새 질문">
+               <graphic>
+                  <Label fx:id="newq" text="Label" />
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" styleClass="btn" text="거절 질문">
+               <graphic>
+                  <Label fx:id="rejectq" text="Label" />
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+      <ScrollPane layoutX="50.0" layoutY="400.0" prefWidth="500.0" style="-fx-background-color: #fff; -fx-border-color: #fff;">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0">
+               <children>
+                  <VBox fx:id="answerList" spacing="20.0" />
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

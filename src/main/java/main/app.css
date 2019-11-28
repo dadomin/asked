@@ -1,0 +1,46 @@
+#loginPane, #registerPage {
+	-fx-background-color: #7986cb;
+}
+#searchName, #searchId {
+	-fx-background-color: #efefef;
+}
+.profilePage {
+	-fx-background-color: #fff;
+}
+.login-input, .login-txt {
+	-fx-background-color : #8d98d3;
+	-fx-background-radius : 10px;
+	-fx-border-radius : 10px;
+	-fx-font-size: 14px;
+	-fx-text-fill: #fff;
+	-fx-prompt-text-fill: #d6d9ee;
+}
+.login-txt .content {
+	-fx-background-color : #8d98d3;
+	-fx-background-radius : 10px;
+	-fx-border-radius : 10px;
+}
+.btn {
+	-fx-background-color : #fff;
+	-fx-background-radius: 10px;
+	-fx-border-radius: 10px;
+	-fx-text-fill: #7956cb;
+	-fx-cursor: hand;
+}
+.top-title {
+	-fx-background-color: #fafafa;
+}
+.profileBox {
+	-fx-background-color: #fff;
+	-fx-background-radius: 10px;
+	-fx-border-radius: 10px;
+	-fx-cursor: hand;
+}
+.bottom {
+	-fx-background-color: #fafafa;
+}
+.bottombtn {
+	-fx-background-color: rgba(0,0,0,0);
+	-fx-border-color: rgba(0,0,0,0);
+	-fx-cursor: hand;
+}

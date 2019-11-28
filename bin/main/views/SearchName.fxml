@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="searchName" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.SearchNameController">
+   <children>
+      <Pane layoutX="268.0" layoutY="610.0" prefHeight="60.0" prefWidth="600.0" styleClass="bottom" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+         <children>
+            <HBox prefHeight="60.0" prefWidth="600.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#gohome" prefHeight="60.0" prefWidth="200.0" styleClass="bottombtn">
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/home.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="bottombtn" textAlignment="CENTER" textFill="#bdbdbd">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/search_s.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="bottombtn">
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/myfeed.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+      <Pane layoutX="278.0" layoutY="620.0" prefHeight="60.0" prefWidth="600.0" styleClass="bottom" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox prefHeight="60.0" prefWidth="600.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="300.0" style="-fx-border-color: #7986cb; -fx-border-width: 0 0 3 0;" styleClass="bottombtn" text="이름">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#searchId" prefHeight="60.0" prefWidth="300.0" style="-fx-border-color: #bdbdbd; -fx-border-width: 0 0 3 0;" styleClass="bottombtn" text="아이디" textAlignment="CENTER" textFill="#bdbdbd">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+      <TextField fx:id="name" layoutX="52.0" layoutY="80.0" prefHeight="35.0" prefWidth="424.0" />
+      <Button layoutX="476.0" layoutY="80.0" mnemonicParsing="false" onAction="#search" prefHeight="35.0" prefWidth="57.0">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/search.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <ScrollPane layoutX="50.0" layoutY="126.0" prefWidth="500.0" style="-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0">
+               <children>
+                  <VBox fx:id="profList" spacing="20.0" />
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

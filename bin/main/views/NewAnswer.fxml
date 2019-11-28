@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane minHeight="150.0" prefWidth="450.0" style="-fx-background-color: #fafafa; -fx-background-radius: 10px; -fx-border-radius: 10px;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.NewAnswerController">
+   <children>
+      <AnchorPane layoutX="20.0" layoutY="40.0" minHeight="150.0" prefHeight="0.0" prefWidth="450.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label fx:id="question" prefHeight="42.0" prefWidth="410.0" text="Label" />
+            <Label fx:id="qdate" layoutX="4.0" layoutY="45.0" text="Label" />
+            <TextArea fx:id="answer" layoutY="65.0" prefHeight="58.0" prefWidth="410.0" />
+            <Button layoutX="10.0" layoutY="125.0" mnemonicParsing="false" text="거절" />
+            <Button layoutX="60.0" layoutY="125.0" mnemonicParsing="false" text="답변" />
+         </children>
+      </AnchorPane>
+   </children>
+   <padding>
+      <Insets top="20.0" />
+   </padding>
+</AnchorPane>

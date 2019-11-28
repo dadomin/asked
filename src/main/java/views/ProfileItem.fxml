@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="120.0" onMouseClicked="#goProfile" prefWidth="450.0" styleClass="profileBox" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.ProfilItemController">
+   <children>
+      <Label fx:id="namelbl" layoutX="153.0" layoutY="32.0" text="Label">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="idlbl" layoutX="153.0" layoutY="66.0" text="Label">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Canvas fx:id="canvas" height="100.0" layoutX="34.0" layoutY="10.0" width="100.0" />
+      <Label fx:id="infolbl" layoutX="153.0" layoutY="84.0" text="Label" />
+   </children>
+</AnchorPane>
