@@ -62,11 +62,15 @@ public class ProfileController extends MasterController {
 		gc.setStroke(Color.WHITE);
 		gc.setLineWidth(30);
 		gc.strokeOval(-15,-15,w+30,h+30);
-		
+		question.setText("");
+		setCount();
+		setDone();
+	}
+	
+	public void setCount() {
 		donequestion();
 		newquestion();
 		rejectquestion();
-		setDone();
 	}
 	
 	public void showNew() {
@@ -79,7 +83,7 @@ public class ProfileController extends MasterController {
 		Connection con = JDBCUtil.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * FROM `ask_qa` WHERE id = ? AND answer IS NULL";
+		String sql = "SELECT * FROM `ask_qa` WHERE id = ? AND answer IS NULL AND `reject` IS NULL";
 		List<AnswerVO> list = new ArrayList<>();
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -89,6 +93,7 @@ public class ProfileController extends MasterController {
 				AnswerVO temp = new AnswerVO();
 				temp.setUser(user);
 				temp.setQuestion(rs.getString("question"));
+				temp.setIdx(rs.getInt("idx"));
 				String qdate = new SimpleDateFormat("yyyyMMdd HH:mm:ss").format(rs.getTimestamp("qdate"));
 				temp.setQdate(qdate);
 				list.add(temp);
@@ -114,7 +119,8 @@ public class ProfileController extends MasterController {
 			UserVO user = item.getUser();
 			String question = item.getQuestion();
 			String date = item.getQdate();
-			ac.setData(user, question, date);
+			int idx = item.getIdx();
+			ac.setData(user, question, date, idx);
 			answerList.getChildren().add(root);
 		}
 	}
@@ -126,7 +132,7 @@ public class ProfileController extends MasterController {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "SELECT * FROM `ask_qa` WHERE id = ? AND answer IS NOT NULL";
+		String sql = "SELECT * FROM `ask_qa` WHERE id = ? AND answer IS NOT NULL AND `reject` IS NULL ORDER BY adate DESC";
 		List<AnswerVO> list = new ArrayList<>();
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -155,8 +161,7 @@ public class ProfileController extends MasterController {
 	private void makeFXML(List<AnswerVO> list) throws Exception {
 		for(AnswerVO item : list) {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("/views/Answer.fxml"));
-			
+			loader.setLocation(getClass().getResource("/views/Answer.fxml"));	
 			AnchorPane root = loader.load();
 			AnswerController ac = loader.getController();
 			UserVO user = item.getUser();
@@ -168,12 +173,61 @@ public class ProfileController extends MasterController {
 		}
 	}
 	
+	public void setReject() {
+		int size = answerList.getChildren().size();
+		answerList.getChildren().remove(0, size);
+		
+		Connection con = JDBCUtil.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "SELECT * FROM `ask_qa` WHERE `id` = ? AND `reject` IS NOT NULL ORDER BY qdate DESC";
+		List<AnswerVO> list = new ArrayList<>();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, user.getId());
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				AnswerVO temp = new AnswerVO();
+				temp.setUser(user);
+				temp.setQuestion(rs.getString("question"));
+				String fdate = new SimpleDateFormat("yyyyMMdd HH:mm:ss").format(rs.getTimestamp("qdate"));
+				temp.setQdate(fdate);
+				temp.setIdx(rs.getInt("idx"));
+				list.add(temp);
+			}
+			makeRejectFXML(list);
+		}catch (Exception e) {
+			e.printStackTrace();
+			Util.showAlert("에러", "데이터베이스 정보 가져오기 중 오류 발생", AlertType.ERROR);
+		} finally {
+			JDBCUtil.close(rs);
+			JDBCUtil.close(pstmt);
+			JDBCUtil.close(con);
+		}
+	}
+	
+	private void makeRejectFXML(List<AnswerVO> list) throws Exception {
+		for(AnswerVO item : list) {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(getClass().getResource("/views/RejectAnswer.fxml"));	
+			AnchorPane root = loader.load();
+			RejectAnswerController rac = loader.getController();
+			UserVO user = item.getUser();
+			String question = item.getQuestion();
+			String date = item.getQdate();
+			int id = item.getIdx();
+			rac.setData(user, question, date, id);
+			answerList.getChildren().add(root);
+		}
+	}
+	
 	public void donequestion() {
 		Connection con = JDBCUtil.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "SELECT COUNT(*) AS cnt FROM `ask_qa` WHERE id = ? AND answer IS NOT NULL";
+		String sql = "SELECT COUNT(*) AS cnt FROM `ask_qa` WHERE id = ? AND answer IS NOT NULL AND reject IS NULL";
 		
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -197,7 +251,7 @@ public class ProfileController extends MasterController {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "SELECT COUNT(*) AS cnt FROM `ask_qa` WHERE id = ? AND answer IS NULL";
+		String sql = "SELECT COUNT(*) AS cnt FROM `ask_qa` WHERE id = ? AND answer IS NULL AND reject IS NULL";
 		
 		try {
 			pstmt = con.prepareStatement(sql);

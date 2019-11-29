@@ -29,13 +29,11 @@ public class MainController extends MasterController {
 	@FXML private Label loginInfo;
 	@FXML private VBox profList;
 	
-	private UserVO user;
+	public UserVO user;
 	
 	public void setLoginInfo(UserVO user) {
 		this.user = user;
-//		loginInfo.setText(user.getName() + "[" + user.getId() + "]");
 		BufferedImage b = user.getDeck();
-//		showtest(b);
 	}
 	
 	public boolean checklogin(UserVO u) {
@@ -58,6 +56,10 @@ public class MainController extends MasterController {
 	}
 	
 	public void showAll() {
+
+		int size = profList.getChildren().size();
+		profList.getChildren().remove(0, size);
+		
 		Connection con = JDBCUtil.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -114,5 +116,9 @@ public class MainController extends MasterController {
 	public void myPage() {
 		MainApp.app.setProfile(user);
 		MainApp.app.loadPane("profile");
+	}
+	
+	public void logout() {
+		MainApp.app.loadPane("login");
 	}
 }

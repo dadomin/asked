@@ -13,8 +13,8 @@
             <Label fx:id="question" prefHeight="42.0" prefWidth="410.0" text="Label" />
             <Label fx:id="qdate" layoutX="4.0" layoutY="45.0" text="Label" />
             <TextArea fx:id="answer" layoutY="65.0" prefHeight="58.0" prefWidth="410.0" />
-            <Button layoutX="10.0" layoutY="125.0" mnemonicParsing="false" text="거절" />
-            <Button layoutX="60.0" layoutY="125.0" mnemonicParsing="false" text="답변" />
+            <Button layoutX="10.0" layoutY="125.0" mnemonicParsing="false" onAction="#goreject" text="거절" />
+            <Button layoutX="60.0" layoutY="125.0" mnemonicParsing="false" onAction="#goAnswer" text="답변" />
          </children>
       </AnchorPane>
    </children>

@@ -141,5 +141,17 @@ public class MainApp extends Application {
 		MainController mc = (MainController)controllerMap.get("main");
 		return mc.checklogin(u);
 	}
+	
+	public void doneNewAnswer() {
+		ProfileController pcc = (ProfileController)controllerMap.get("profile");
+		pcc.setCount();
+		pcc.setDone();
+	}
+	
+	public void doneRejectAnswer() {
+		ProfileController pcc = (ProfileController)controllerMap.get("profile");
+		pcc.setCount();
+		pcc.setReject();
+	}
 
 }

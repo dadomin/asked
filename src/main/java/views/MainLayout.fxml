@@ -27,9 +27,10 @@
                         <Image url="@../resources/toplogo.png" />
                      </image>
                   </ImageView>
+                  <Button layoutX="516.0" layoutY="15.0" mnemonicParsing="false" onAction="#logout" text="LOGOUT" />
                </children>
             </Pane>
-            <ScrollPane layoutX="75.0" layoutY="77.0" prefWidth="500.0" style="-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);">
+            <ScrollPane layoutX="75.0" layoutY="77.0" prefHeight="648.0" prefWidth="500.0" style="-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0">
                      <children>

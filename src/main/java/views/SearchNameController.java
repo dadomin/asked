@@ -26,7 +26,6 @@ public class SearchNameController extends MasterController {
 	@FXML VBox profList;
 	
 	public List<UserVO> list;
-	
 	public void search() {
 		list = new ArrayList<>();
 		int size = profList.getChildren().size();
@@ -87,4 +86,5 @@ public class SearchNameController extends MasterController {
 	public void gohome() {
 		MainApp.app.slideOut(getRoot());
 	}
+	
 }

@@ -17,16 +17,12 @@
          <children>
             <HBox prefHeight="60.0" prefWidth="600.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#gohome" prefHeight="60.0" prefWidth="200.0" styleClass="bottombtn">
-                     <graphic>
-                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../resources/home.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
+                  <Button mnemonicParsing="false" onAction="#gohome" prefHeight="60.0" prefWidth="300.0" styleClass="bottombtn" text="뒤로가기" textFill="#656565">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
                   </Button>
-                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="bottombtn" textAlignment="CENTER" textFill="#bdbdbd">
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="60.0" prefWidth="300.0" styleClass="bottombtn" textAlignment="CENTER" textFill="#bdbdbd">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -34,15 +30,6 @@
                         <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/search_s.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="bottombtn">
-                     <graphic>
-                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../resources/myfeed.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -79,7 +66,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <ScrollPane layoutX="50.0" layoutY="126.0" prefWidth="500.0" style="-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);">
+      <ScrollPane layoutX="50.0" layoutY="126.0" prefHeight="603.0" prefWidth="500.0" style="-fx-background-color: rgba(0,0,0,0); -fx-border-color: rgba(0,0,0,0);">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0">
                <children>

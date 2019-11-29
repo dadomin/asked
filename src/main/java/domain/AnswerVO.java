@@ -8,7 +8,14 @@ public class AnswerVO {
 	private String adate;
 	private String answer;
 	private String question;
+	private int idx;
 	
+	public int getIdx() {
+		return idx;
+	}
+	public void setIdx(int idx) {
+		this.idx = idx;
+	}
 	public String getQdate() {
 		return qdate;
 	}

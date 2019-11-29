@@ -13,8 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="800.0" prefWidth="600.0" styleClass="profilePage" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="views.ProfileController">
+<AnchorPane prefHeight="800.0" prefWidth="600.0" styleClass="profilePage" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.ProfileController">
    <children>
       <Pane layoutX="92.0" layoutY="10.0" prefHeight="50.0" prefWidth="600.0" styleClass="top-title" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -79,7 +78,7 @@
       <Button layoutX="140.0" layoutY="309.0" mnemonicParsing="false" onAction="#question" prefHeight="28.0" prefWidth="273.0" text="질문하기" />
       <HBox layoutY="349.0" prefHeight="40.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" styleClass="btn" text="답변 완료">
+            <Button mnemonicParsing="false" onAction="#setDone" prefHeight="40.0" prefWidth="200.0" styleClass="btn" text="답변 완료">
                <graphic>
                   <Label fx:id="doneq" text="Label" />
                </graphic>
@@ -89,20 +88,16 @@
                   <Label fx:id="newq" text="Label" />
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" styleClass="btn" text="거절 질문">
+            <Button mnemonicParsing="false" onAction="#setReject" prefHeight="40.0" prefWidth="200.0" styleClass="btn" text="거절 질문">
                <graphic>
                   <Label fx:id="rejectq" text="Label" />
                </graphic>
             </Button>
          </children>
       </HBox>
-      <ScrollPane layoutX="50.0" layoutY="400.0" prefWidth="500.0" style="-fx-background-color: #fff; -fx-border-color: #fff;">
+      <ScrollPane layoutX="23.0" layoutY="400.0" prefHeight="334.0" prefWidth="553.0" style="-fx-background-color: #fff; -fx-border-color: #fff;">
          <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0">
-               <children>
-                  <VBox fx:id="answerList" spacing="20.0" />
-               </children>
-            </AnchorPane>
+            <VBox fx:id="answerList" spacing="20.0" />
          </content>
       </ScrollPane>
    </children>
